@@ -31,9 +31,8 @@ class ViewController: UIViewController {
     var isShake = true
     
     
-    //1st step  - get an instance of AppDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var context:NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +74,7 @@ class ViewController: UIViewController {
                
             }
            
+            debugPrint(gameState)
            
         }
         
@@ -159,15 +159,18 @@ class ViewController: UIViewController {
     }
     
     func saveDetail(itemDetail: String,key:String) {
-       
-        let entity = NSEntityDescription.insertNewObject(forEntityName: "Game", into: context)
-       // let manageObject = NSManagedObject(entity: entity!, insertInto: context)
-        entity.setValue(itemDetail, forKey: key)
-        do {
-            try appDelegate.saveContext()
+        context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Game", in: context)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+       // let entity = NSEntityDescription.insertNewObject(forEntityName: "Game", into: context)
+       // let manageObject = NSManagedObject(entity: entity, insertInto: context)
+        
+      newUser.setValue(itemDetail, forKey: key)
+       do {
+           try context.save()
         } catch {
-            print(error)
-        }
+          print(error)
+       }
     }
     
     func fetchData(_ context: NSManagedObjectContext){
@@ -180,10 +183,12 @@ class ViewController: UIViewController {
                 for result in results as! [NSManagedObject]{
                     if let scoreX = result.value(forKey: "scoreX"){
                         let x = scoreX as! String
+                    
                         print("X :\(x)")
                     }
                     if let scoreO = result.value(forKey: "scoreO"){
                         let o = scoreO as! String
+                        
                         print("O :\(o)")
                         
                       

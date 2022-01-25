@@ -20,28 +20,28 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board.png" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-mn-oAF">
                                 <rect key="frame" x="10" y="194" width="394" height="518"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="hk8-ll-2qa">
-                                <rect key="frame" x="13" y="315" width="394" height="518"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="hk8-ll-2qa">
+                                <rect key="frame" x="10" y="194" width="394" height="518"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="npD-p4-9Ti">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="161.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="114.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z80-Qx-Enp">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="161.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="Gyd-3i-xcE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25b-iv-cRG">
-                                                <rect key="frame" x="139.5" y="0.0" width="115" height="161.5"/>
+                                                <rect key="frame" x="139.5" y="0.0" width="115" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="gEg-QU-A9l"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQy-eF-Qif">
-                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="161.5"/>
+                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="PiV-KH-cxb"/>
@@ -50,24 +50,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="rev-VV-3kD">
-                                        <rect key="frame" x="0.0" y="178.5" width="394" height="161"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="394" height="115"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="834-HI-gwF">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="161"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="115"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="j2H-rT-oVx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyS-no-ZbB">
-                                                <rect key="frame" x="139.5" y="0.0" width="115" height="161"/>
+                                                <rect key="frame" x="139.5" y="0.0" width="115" height="115"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="pxV-pn-URx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-vk-TYm">
-                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="161"/>
+                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="115"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="by1-Zy-Blr"/>
@@ -76,24 +76,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hXS-AO-wdU">
-                                        <rect key="frame" x="0.0" y="356.5" width="394" height="161.5"/>
+                                        <rect key="frame" x="0.0" y="403.5" width="394" height="114.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIy-6r-bwW">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="161.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="ibq-IS-ICH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB9-ga-hHg">
-                                                <rect key="frame" x="139.5" y="0.0" width="115" height="161.5"/>
+                                                <rect key="frame" x="139.5" y="0.0" width="115" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="dIY-Bg-eVm"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg0-wf-0HI">
-                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="161.5"/>
+                                                <rect key="frame" x="279.5" y="0.0" width="114.5" height="114.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="action:" destination="q2o-te-CwK" eventType="touchUpInside" id="ela-J5-d0J"/>
