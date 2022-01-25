@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="RoO-p4-1sB">
             <objects>
-                <viewController id="q2o-te-CwK" customClass="ViewController" customModule="TicTacToe_template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q2o-te-CwK" customClass="ViewController" customModule="Lab1_alfyGeorge_C0836170_iOS_main" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OuD-me-M3Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

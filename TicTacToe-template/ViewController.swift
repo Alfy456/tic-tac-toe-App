@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -19,14 +20,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scoreofNought: UILabel!
     @IBOutlet weak var scoreofCross: UILabel!
-    
-    
+    var game = [Game]()
     var count = 1
     var activePlayer = 1 //cross
     var gameState = [0,0,0,0,0,0,0,0,0]//setting each state with zero
     var gameIsActive = true
     //defining every winning states
     let winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+   
+    var isShake = true
+    
+    
+    //1st step  - get an instance of AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +41,26 @@ class ViewController: UIViewController {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeUp.direction = .up
         view.addGestureRecognizer(swipeUp)
+        //2nd step - to get the context
+        let context = appDelegate.persistentContainer.viewContext
+                //shake gesture response
+        self.becomeFirstResponder()
+        
+   fetchData(context)
     }
-
+    
+    override var canBecomeFirstResponder: Bool{
+        get{
+            return true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      //  fetchData()
+    }
+   
     @IBAction func action(_ sender: AnyObject) {
+       
         if(gameState[sender.tag-1] == 0 && gameIsActive == true){
             
             //update gamestate to the activeplayer
@@ -44,10 +68,14 @@ class ViewController: UIViewController {
             if(activePlayer == 1){
                 sender.setImage(UIImage(named: "cross.png"), for: UIControl.State())
                 activePlayer = 2
+                
             }else{
                  sender.setImage(UIImage(named: "nought.png"), for: UIControl.State())
                  activePlayer = 1
+               
             }
+           
+           
         }
         
         for combination in winningCombinations {
@@ -55,21 +83,24 @@ class ViewController: UIViewController {
             
             gameIsActive = false
             
+               
             
             if gameState[combination[0]] == 1{
                 label.text = "Cross has won!"
                 crossMark += 1
                 scoreofCross.text = String(crossMark)
                 print(crossMark)
-              
+              saveDetail(itemDetail: String(crossMark), key: "scoreX")
                 
             }else{
                 label.text = "Cricle has won"
                 noughtMark += 1
                 scoreofNought.text = String(noughtMark)
                 print(noughtMark)
-                
+                saveDetail(itemDetail: String(noughtMark), key: "scoreO")
             }
+              
+                
                 label.isHidden = false
             }
         }
@@ -88,8 +119,9 @@ class ViewController: UIViewController {
                     
                 }
             
-            
-        }
+        
+        
+    }
     
     
     
@@ -116,6 +148,57 @@ class ViewController: UIViewController {
         }
     }
     
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if event?.subtype == .motionShake{
+            
+            print("Shake")
+        
+                
+        
+        }
+    }
     
+    func saveDetail(itemDetail: String,key:String) {
+       
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "Game", into: context)
+       // let manageObject = NSManagedObject(entity: entity!, insertInto: context)
+        entity.setValue(itemDetail, forKey: key)
+        do {
+            try appDelegate.saveContext()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchData(_ context: NSManagedObjectContext){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Game")
+        
+       
+        do{
+        let results = try context.fetch(request)
+            if results.count > 0{
+                for result in results as! [NSManagedObject]{
+                    if let scoreX = result.value(forKey: "scoreX"){
+                        let x = scoreX as! String
+                        print("X :\(x)")
+                    }
+                    if let scoreO = result.value(forKey: "scoreO"){
+                        let o = scoreO as! String
+                        print("O :\(o)")
+                        
+                      
+                    }
+                    
+                    //update the context
+                    try  appDelegate.saveContext()
+                    
+                    
+                    print("*************")
+                    
+                }
+            }
+        }catch{
+            print(error)
+        }    }
 }
 
